@@ -10,7 +10,7 @@ angular.module('starter')
     .then(function(response) {
       $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
       $scope.user = {};
-      $location.path('/tab/create-post');
+      $location.path('/map');
     }).catch(function(err) {
       console.log(err);
       $ionicPopup.alert({
