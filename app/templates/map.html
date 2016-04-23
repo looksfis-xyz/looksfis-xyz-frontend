@@ -1,18 +1,17 @@
 <ion-view view-title="looksFishy">
   <ion-content>
-    <div id="center_pin">
-      <div class="button-bar search-bar">
-        <button class="button">+</button>
-        <button class="button">-</button>
-      </div>
-      <img src="img/center_pin.svg.png">
+    <img id="center_pin" src="img/center_pin.svg.png">
+    <div class="type-selector">
+      <button class="button" ng-click="addLostItem()"><i class="icon ion-plus"></i></button>
+      <button class="button" ng-click="searchLostItems()"><i class="icon ion-search"></i></button>
     </div>
     <div id="map" data-tap-disabled="true">
     </div>
+
     <div class="button-bar item-selector">
-      <button class="button" ng-class="{selected: categories.net}" ng-click="typeSelected('net')">Nets</button>
-      <button class="button" ng-class="{selected: categories.pot}" ng-click="typeSelected('pot')">Pots</button>
-      <button class="button" ng-class="{selected: categories.rod}" ng-click="typeSelected('rod')">Rods</button>
+      <button class="button" ng-class="{selected: categories.net}" ng-click="typeSelected('net')"><img src="img/fishing_net.png" />Net</button>
+      <button class="button" ng-class="{selected: categories.pot}" ng-click="typeSelected('pot')"><img src="img/fishing_pot.png" />Pot</button>
+      <button class="button" ng-class="{selected: categories.rod}" ng-click="typeSelected('rod')"><img src="img/fishing_rod.png" />Rod</button>
     </div>
   </ion-content>
 </ion-view>

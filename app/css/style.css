@@ -13,8 +13,16 @@
   height: 10%;
 }
 
-.selected {
-  background-color: #e5e5e5;
+.item-selector > button {
+  height:100%;
+}
+
+.item-selector > button > img{
+  height:90%;
+}
+
+.item-selector > button.selected {
+  background-color: #0ac9fb;
 }
 
 .icon-center {
@@ -24,11 +32,22 @@
 #center_pin{
   position: absolute;
   z-index: 1000;
-  left:36.5%;
-  top:35%;
-  text-align: center;
+  left:47%;
+  top:41%;
 }
 
 .search-bar {
   margin-bottom: -20px;
+}
+
+.type-selector {
+  position: absolute;
+  z-index: 99;
+  left:24%;
+  top:55%;
+}
+
+.type-selector > button {
+  width: 100px;
+  border-radius: 15px;
 }

@@ -15,7 +15,10 @@ angular.module('starter')
     var mapOptions = {
       center: latLng,
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      rotateControl: false,
+      mapTypeControl:false,
+      streetViewControl: false
     };
 
     $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -52,5 +55,12 @@ angular.module('starter')
     } else if (type == 'rod') {
       $scope.categories.rod = !$scope.categories.rod
     }
+  }
+
+  $scope.addLostItem = function() {
+    console.log("ADD CLICKED");
+  }
+  $scope.searchLostItems = function() {
+    console.log("FOUND CLICKEd");
   }
 });
