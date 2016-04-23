@@ -45,7 +45,7 @@ angular.module('starter', [
   .state('tab.dash', {
     url: '/dash',
     views: {
-      'tab-dash': {
+      'menuContent': {
         templateUrl: 'templates/tab-dash.html',
         controller: 'DashCtrl'
       }
@@ -55,7 +55,7 @@ angular.module('starter', [
   .state('tab.chats', {
       url: '/chats',
       views: {
-        'tab-chats': {
+        'menuContent': {
           templateUrl: 'templates/tab-chats.html',
           controller: 'ChatsCtrl'
         }
@@ -64,7 +64,7 @@ angular.module('starter', [
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
-        'tab-chats': {
+        'menuContent': {
           templateUrl: 'templates/chat-detail.html',
           controller: 'ChatDetailCtrl'
         }
@@ -74,9 +74,19 @@ angular.module('starter', [
   .state('tab.account', {
     url: '/account',
     views: {
-      'tab-account': {
+      'menuContent': {
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
+      }
+    }
+  })
+
+  .state('tab.create-post', {
+    url: '/create-post',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/create-post.html',
+        controller: 'CreatePostCtrl'
       }
     }
   });
@@ -84,4 +94,15 @@ angular.module('starter', [
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
+})
+.directive('hideTabs', function($rootScope) {
+  return {
+      restrict: 'A',
+      link: function($scope, $el) {
+          $rootScope.hideTabs = 'tabs-item-hide';
+          $scope.$on('$destroy', function() {
+              $rootScope.hideTabs = '';
+          });
+      }
+  };
 });
