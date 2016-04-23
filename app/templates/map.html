@@ -1,11 +1,18 @@
 <ion-view view-title="looksFishy">
-<p>hello world</p>
-    <ion-content>
-        <div id="map" data-tap-disabled="true"></div>
-        <div class="button-bar item-selector">
-          <button class="button" ng-class="{selected: categories.net}" ng-click="typeSelected('net')">Nets</button>
-          <button class="button" ng-class="{selected: categories.pot}" ng-click="typeSelected('pot')">Pots</button>
-          <button class="button" ng-class="{selected: categories.rod}" ng-click="typeSelected('rod')">Rods</button>
-        </div>
-    </ion-content>
+  <ion-content>
+    <div id="center_pin">
+      <div class="button-bar search-bar">
+        <button class="button">+</button>
+        <button class="button">-</button>
+      </div>
+      <img src="img/center_pin.svg.png">
+    </div>
+    <div id="map" data-tap-disabled="true">
+    </div>
+    <div class="button-bar item-selector">
+      <button class="button" ng-class="{selected: categories.net}" ng-click="typeSelected('net')">Nets</button>
+      <button class="button" ng-class="{selected: categories.pot}" ng-click="typeSelected('pot')">Pots</button>
+      <button class="button" ng-class="{selected: categories.rod}" ng-click="typeSelected('rod')">Rods</button>
+    </div>
+  </ion-content>
 </ion-view>

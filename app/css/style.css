@@ -16,3 +16,19 @@
 .selected {
   background-color: #e5e5e5;
 }
+
+.icon-center {
+  height:100%;
+}
+
+#center_pin{
+  position: absolute;
+  z-index: 1000;
+  left:36.5%;
+  top:35%;
+  text-align: center;
+}
+
+.search-bar {
+  margin-bottom: -20px;
+}
