@@ -4,6 +4,7 @@ angular.module('starter')
 
 .controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
   var options = {timeout: 10000, enableHighAccuracy: true};
+  $scope.categories = {}
 
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
 
@@ -20,4 +21,14 @@ angular.module('starter')
   }, function(error){
     console.log("Could not get location");
   });
+
+  $scope.typeSelected = function(type) {
+    if (type === 'net') {
+      $scope.categories.net = !$scope.categories.net
+    } else if (type == 'pot') {
+      $scope.categories.pot = !$scope.categories.pot
+    } else if (type == 'rod') {
+      $scope.categories.rod = !$scope.categories.rod
+    }
+  }
 });
