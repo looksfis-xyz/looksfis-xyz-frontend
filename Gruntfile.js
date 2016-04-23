@@ -158,7 +158,7 @@ module.exports = function (grunt) {
       }
     },
 
-    
+
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -321,49 +321,6 @@ module.exports = function (grunt) {
 
     // Test settings
     // These will override any config options in karma.conf.js if you create it.
-    karma: {
-      options: {
-        basePath: '',
-        frameworks: ['mocha', 'chai'],
-        files: [
-          '<%= yeoman.app %>/bower_components/angular/angular.js',
-          '<%= yeoman.app %>/bower_components/angular-mocks/angular-mocks.js',
-          '<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js',
-          '<%= yeoman.app %>/bower_components/angular-sanitize/angular-sanitize.js',
-          '<%= yeoman.app %>/bower_components/angular-ui-router/release/angular-ui-router.js',
-          '<%= yeoman.app %>/bower_components/ionic/release/js/ionic.js',
-          '<%= yeoman.app %>/bower_components/ionic/release/js/ionic-angular.js',
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js',
-          '<%= yeoman.test %>/mock/**/*.js',
-          '<%= yeoman.test %>/spec/**/*.js'
-        ],
-        autoWatch: false,
-        reporters: ['dots', 'coverage'],
-        port: 8080,
-        singleRun: false,
-        preprocessors: {
-          // Update this if you change the yeoman config path
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js': ['coverage']
-        },
-        coverageReporter: {
-          reporters: [
-            { type: 'html', dir: 'coverage/' },
-            { type: 'text-summary' }
-          ]
-        }
-      },
-      unit: {
-        // Change this to 'Chrome', 'Firefox', etc. Note that you will need
-        // to install a karma launcher plugin for browsers other than Chrome.
-        browsers: ['PhantomJS'],
-        background: true
-      },
-      continuous: {
-        browsers: ['PhantomJS'],
-        singleRun: true
-      }
-    },
-
     // ngAnnotate tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection.
     ngAnnotate: {
@@ -437,14 +394,7 @@ module.exports = function (grunt) {
 
   // Dynamically configure `karma` target of `watch` task so that
   // we don't have to run the karma test server as part of `grunt serve`
-  grunt.registerTask('watch:karma', function () {
-    var karma = {
-      files: ['<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js', '<%= yeoman.test %>/spec/**/*.js'],
-      tasks: ['newer:jshint:test', 'karma:unit:run']
-    };
-    grunt.config.set('watch', karma);
-    return grunt.task.run(['watch']);
-  });
+
 
   // Wrap ionic-cli commands
   grunt.registerTask('ionic', function() {
@@ -463,8 +413,6 @@ module.exports = function (grunt) {
     'clean',
     'concurrent:test',
     'autoprefixer',
-    'karma:unit:start',
-    'watch:karma'
   ]);
 
   grunt.registerTask('serve', function (target) {
@@ -514,15 +462,14 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage', 
-    ['karma:continuous',
+  grunt.registerTask('coverage',
+    [
     'connect:coverage:keepalive'
   ]);
 
   grunt.registerTask('default', [
     'wiredep',
     'newer:jshint',
-    'karma:continuous',
     'compress'
   ]);
 };

@@ -2,15 +2,15 @@
 
 angular.module('starter')
 
-.controller('LogInCtrl', function($scope, $ionicPopup, $http, $location, ENV) {
+.controller('LogInCtrl', function($scope, $ionicPopup, $http, $location, ENV, $window) {
   $scope.user = {};
 
   $scope.logIn = function() {
-    $http.get(ENV.apiEndpoint +'/users', { params: { email: $scope.user.email, password: $scope.user.password } })
+    $http.post(ENV.apiEndpoint +'/login', { user: { email: $scope.user.email, password: $scope.user.password } })
     .then(function(response) {
       $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
       $scope.user = {};
-      $location.path('/tab/create-post');
+      $location.path('/map');
     }).catch(function(err) {
       console.log(err);
       $ionicPopup.alert({

@@ -1,0 +1,17 @@
+<ion-view view-title="Map">
+  <ion-content>
+    <img id="center_pin" ng-src="img/center_pin.svg.png">
+    <div class="type-selector">
+      <button class="button" ng-click="addLostItem()"><i class="icon ion-plus"></i></button>
+      <button class="button" ng-click="searchLostItems()"><i class="icon ion-search"></i></button>
+    </div>
+    <div id="map" data-tap-disabled="true">
+    </div>
+
+    <div class="button-bar item-selector">
+      <button class="button" ng-class="{selected: categories.net}" ng-click="typeSelected('net')"><img ng-src="img/fishing_net.png" />Net</button>
+      <button class="button" ng-class="{selected: categories.pot}" ng-click="typeSelected('pot')"><img ng-src="img/fishing_pot.png" />Pot</button>
+      <button class="button" ng-class="{selected: categories.rod}" ng-click="typeSelected('rod')"><img ng-src="img/fishing_rod.png" />Rod</button>
+    </div>
+  </ion-content>
+</ion-view>
