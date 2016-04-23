@@ -99,6 +99,16 @@ angular.module('starter', [
         controller: 'LogInCtrl'
       }
     }
+  })
+
+  .state('tab.sign-up', {
+    url: '/sign-up',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sign-up.html',
+        controller: 'SignUpCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback

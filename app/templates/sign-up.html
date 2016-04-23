@@ -1,8 +1,8 @@
-<ion-view view-title="Log In" hide-nav-bar="true">
+<ion-view view-title="Sign Up" hide-nav-bar="true">
   <ion-content class="padding">
     <img ng-src="img/logo.png">
     <div row="row responsive-sm">
-      <form ng-submit="logIn()" class="col">
+      <form ng-submit="signUp()" class="col">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Username</span>
           <input type="text" ng-model="user.username" placeholder="Blank" ng-required="true">
@@ -11,9 +11,13 @@
           <span class="input-label">Password</span>
           <input type="password" ng-model="user.password" placeholder="*****" ng-required="true">
         </label>
-        <button class="button button-block button-positive" type="submit">Log In</button>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password Confirmation</span>
+          <input type="password" ng-model="user.password" placeholder="*****" ng-required="true">
+        </label>
+        <button class="button button-block button-positive" type="submit">Sign Up</button>
       </form>
-      <a class="button button-small button-block button-positive" href="/#/tab/sign-up">Sign Up</a>
+      <a class="button button-small button-block button-positive" href="/#/tab/log-in">Log In</a>
     </div>
   </ion-content>
 </ion-view>

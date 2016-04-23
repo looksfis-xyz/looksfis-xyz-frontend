@@ -2,11 +2,11 @@
 
 angular.module('starter')
 
-.controller('LogInCtrl', function($scope, $ionicPopup, $http, $location) {
+.controller('SignUpCtrl', function($scope, $ionicPopup, $http, $location) {
   $scope.user = {};
 
-  $scope.logIn = function() {
-    $http.get('FILLINURL', { params: { username: $scope.user.username, password: $scope.user.password } })
+  $scope.signUp = function() {
+    $http.post('FILLINURL', { user: $scope.user })
     .then(function(response) {
       $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
       $scope.user = {};
@@ -14,7 +14,7 @@ angular.module('starter')
     }).catch(function(err) {
       console.log(err);
       $ionicPopup.alert({
-        title: 'Could not login',
+        title: 'Could not sign up',
         template: 'Please try again'
       });
     });
