@@ -89,10 +89,20 @@ angular.module('starter', [
         controller: 'CreatePostCtrl'
       }
     }
+  })
+
+  .state('tab.log-in', {
+    url: '/log-in',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/log-in.html',
+        controller: 'LogInCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/log-in');
 
 })
 .directive('hideTabs', function($rootScope) {
