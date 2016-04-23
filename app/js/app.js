@@ -91,28 +91,20 @@ angular.module('starter', [
     }
   })
 
-  .state('tab.log-in', {
+  .state('log-in', {
     url: '/log-in',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/log-in.html',
-        controller: 'LogInCtrl'
-      }
-    }
+    templateUrl: 'templates/log-in.html',
+    controller: 'LogInCtrl'
   })
 
-  .state('tab.sign-up', {
+  .state('sign-up', {
     url: '/sign-up',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/sign-up.html',
-        controller: 'SignUpCtrl'
-      }
-    }
+    templateUrl: 'templates/sign-up.html',
+    controller: 'SignUpCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/log-in');
+  $urlRouterProvider.otherwise('/log-in');
 
 })
 .directive('hideTabs', function($rootScope) {

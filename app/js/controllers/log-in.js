@@ -2,11 +2,11 @@
 
 angular.module('starter')
 
-.controller('LogInCtrl', function($scope, $ionicPopup, $http, $location) {
+.controller('LogInCtrl', function($scope, $ionicPopup, $http, $location, ENV) {
   $scope.user = {};
 
   $scope.logIn = function() {
-    $http.get('FILLINURL', { params: { username: $scope.user.username, password: $scope.user.password } })
+    $http.get(ENV.apiEndpoint +'/users', { params: { email: $scope.user.email, password: $scope.user.password } })
     .then(function(response) {
       $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
       $scope.user = {};
