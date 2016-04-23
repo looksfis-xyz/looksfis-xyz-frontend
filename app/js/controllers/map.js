@@ -2,11 +2,9 @@
 
 angular.module('starter')
 
-.controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
+.controller('MapCtrl', function($scope, $state, $cordovaGeolocation, $http, $location, ENV, $window) {
   var options = {timeout: 10000, enableHighAccuracy: true};
   $scope.categories = {}
-  var oldZoom = null;
-  var oldCenter = null;
   $scope.center_coords = null;
 
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
@@ -61,6 +59,31 @@ angular.module('starter')
     console.log("ADD CLICKED");
   }
   $scope.searchLostItems = function() {
-    console.log("FOUND CLICKEd");
+    var categories_array = [];
+    if ($scope.categories.net) {
+      categories_array.push(1)
+    }
+    if ($scope.categories.pot) {
+      categories_array.push(2)
+    }
+    if ($scope.categories.rod) {
+      categories_array.push(3)
+    }
+    var latlngArray = $scope.center_coords.split(',');
+    var params = {
+      lattitude: Number(latlngArray[0]),
+      longitude: Number(latlngArray[1]),
+      categories: categories_array,
+      radius: 0.5,
+    };
+
+    console.log(params);
+
+    $http.get(ENV.apiEndpoint + '/posts', {params: params}).then(function(response){
+      console.log(response);
+    }).catch(function(err) {
+      console.log(err);
+    })
+
   }
 });
